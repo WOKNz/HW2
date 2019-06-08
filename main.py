@@ -1,11 +1,11 @@
-from Module import Point
-from Module import LineSegment
-from intrsect import intersect
 import random
 import numpy as np
 import pylab as pl
 from matplotlib import collections as mc
-import matplotlib.pyplot as plt
+
+from Module import LineSegment
+from Module import Point
+from intrsect import intersect
 
 if __name__ == '__main__':
 
@@ -157,4 +157,3 @@ if __name__ == '__main__':
     pl.scatter(result_x, result_y)
     fig.show()  # plot
     fig.savefig('after.pdf', format='pdf')
-

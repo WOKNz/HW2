@@ -19,8 +19,8 @@ class LineSegment:  # Line segment class
             self.p1 = pnt2
 
     def y_val(self, x):  # Calculating y value of line from x position
-        m = (self.p2.y - self.p1.y)/(self.p2.x - self.p1.x)
-        test = m*(x - self.p1.x) + self.p1.y
+        m = (self.p2.y - self.p1.y) / (self.p2.x - self.p1.x)
+        test = m * (x - self.p1.x) + self.p1.y
         return test
 
 

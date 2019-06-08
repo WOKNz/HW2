@@ -13,12 +13,12 @@ def intersect(line_a, line_b):  # Intersection from Determinants
 
     div = det(xdiff, ydiff)
     if div == 0:
-       return
+        return
 
     d = (det(*line1), det(*line2))
     x = det(d, xdiff) / div
     y = det(d, ydiff) / div
-    
+
     if x < line1[1][0] and x < line2[1][0]:  # Make sure the intersection is in boundaries
         if x > line1[0][0] and x > line2[0][0]:
             return IntersectPoint(x, y, line_a, line_b)  # Returning IntersectionPoint
