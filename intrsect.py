@@ -1,9 +1,10 @@
-from Module import Point
+from Module import IntersectPoint
 
 
-def intersect(p1, p2, q1, q2):
-    line1 = [[p1.x, p1.y], [p2.x, p2.y]]
-    line2 = [[q1.x, q1.y], [q2.x, q2.y]]
+def intersect(line_a, line_b):
+
+    line1 = [[line_a.p1.x, line_a.p1.y], [line_a.p2.x, line_a.p2.y]]
+    line2 = [[line_b.p1.x, line_b.p1.y], [line_b.p2.x, line_b.p2.y]]
     xdiff = (line1[0][0] - line1[1][0], line2[0][0] - line2[1][0])
     ydiff = (line1[0][1] - line1[1][1], line2[0][1] - line2[1][1])
 
@@ -12,9 +13,12 @@ def intersect(p1, p2, q1, q2):
 
     div = det(xdiff, ydiff)
     if div == 0:
-        return None
+       return
 
     d = (det(*line1), det(*line2))
     x = det(d, xdiff) / div
     y = det(d, ydiff) / div
-    return Point(x, y)
+    
+    if x < line1[1][0] and x < line2[1][0]:
+        if x > line1[0][0] and x > line2[0][0]:
+            return IntersectPoint(x, y, line_a, line_b)

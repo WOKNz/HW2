@@ -1,16 +1,31 @@
-class LineSegment:
-    def __init__(self, pnt1, pnt2, id_=None):
-        """ Create a new point at the origin """
-        self.id = id_
-        self.p1 = pnt1
-        self.p2 = pnt2
-
-
 class Point:
-    def __init__(self, x, y, sgmnt1: LineSegment = None, sgmnt2: LineSegment = None, id_=None):
+    def __init__(self, x, y, _id=None, segment=None):
         """ Create a new point at the origin """
-        self.id = id_
+        self.id = _id
         self.x = x
         self.y = y
-        self.ownSgmnt = sgmnt1
-        self.otherSgmnt = sgmnt2
+        self.segment = segment
+
+
+class LineSegment:
+    def __init__(self, pnt1: Point, pnt2: Point, _id=None):
+        """ Create a new point at the origin """
+        self.id = _id
+        if pnt1.x < pnt2.x:  # First point is always the one with lower x
+            self.p1 = pnt1
+            self.p2 = pnt2
+        else:
+            self.p2 = pnt1
+            self.p1 = pnt2
+
+    def y_val(self, x):
+        m = (self.p2.y - self.p1.y)/(self.p2.x - self.p1.x)
+        test = m*(x - self.p1.x) + self.p1.y
+        return test
+
+
+class IntersectPoint(Point):
+    def __init__(self, x, y, ln1: LineSegment, ln2: LineSegment, _id=None):
+        super().__init__(x, y, _id)
+        self.ln1 = ln1
+        self.ln2 = ln2
