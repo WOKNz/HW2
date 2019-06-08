@@ -14,4 +14,3 @@ class Point:
         self.y = y
         self.ownSgmnt = sgmnt1
         self.otherSgmnt = sgmnt2
-
