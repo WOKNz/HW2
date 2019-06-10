@@ -29,3 +29,4 @@ class IntersectPoint(Point):  # Intersection point class that inheritance from P
         super().__init__(x, y, _id)  # Passing to Point
         self.ln1 = ln1
         self.ln2 = ln2
+

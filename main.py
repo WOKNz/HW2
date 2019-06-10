@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     # Generate random Points and  Segments
     PointsList = []
-    for i in range(1, 50):
+    for i in range(1, 100):
         p1 = Point(random.random() * 1000, random.random() * 1000, _id=i)
         i += 1
         p2 = Point(random.random() * 1000, random.random() * 1000, _id=i)
